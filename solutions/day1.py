@@ -25,6 +25,6 @@ def problem2(filename):
 
 
 if __name__ == '__main__':
-    filename = './data/input_day1.txt'
+    filename = '../data/input_day1.txt'
     print(problem1(filename))
     print(problem2(filename))

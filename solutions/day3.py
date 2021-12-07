@@ -63,7 +63,7 @@ def find_CO2(data):
 
 
 if __name__ == '__main__':
-    with open('./data/input_day3.txt', 'r') as f:
+    with open('../data/input_day3.txt', 'r') as f:
         data = [x.strip() for x in f.readlines()]
 
     find_epsilon_and_gamma(data)

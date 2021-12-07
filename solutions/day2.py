@@ -33,7 +33,7 @@ def find_position_and_aim(data):
 
 
 if __name__ == '__main__':
-    with open('./data/input_day2.txt', 'r') as f:
+    with open('../data/input_day2.txt', 'r') as f:
         data = [x.strip() for x in f.readlines()]
 
     position, depth = find_position(data)
