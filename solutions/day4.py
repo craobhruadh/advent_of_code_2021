@@ -1,12 +1,10 @@
-
 class Board:
-
     def __init__(self, board):
         self.m, self.n = 5, 5
 
-        assert(len(board) == self.m)
+        assert len(board) == self.m
         for b in board:
-            assert(len(b) == self.n)
+            assert len(b) == self.n
 
         self.board = board
         self.marked = [[False] * self.n for _ in range(self.m)]
@@ -40,7 +38,7 @@ class Board:
 
 
 def load_board_data(data):
-    numbers = [int(x) for x in data[0].split(',')]
+    numbers = [int(x) for x in data[0].split(",")]
     boards = [[int(y) for y in x.split()] for x in data[2:]]
 
     all_boards = []
@@ -67,7 +65,7 @@ def find_first_winning_board(numbers, boards):
                 found_winner = True
         if found_winner:
             if len(output) > 1:
-                Exception('More than one solution!  Should this be able to handle it?')
+                Exception("More than one solution!  Should this be able to handle it?")
             else:
                 return output[0]
     return -1, -1
@@ -92,8 +90,8 @@ def find_last_winning_board(numbers, boards):
     return last_winner
 
 
-if __name__ == '__main__':
-    with open('../data/input_day4.txt', 'r') as f:
+if __name__ == "__main__":
+    with open("../data/input_day4.txt", "r") as f:
         data = f.readlines()
         numbers, boards = load_board_data(data)
 

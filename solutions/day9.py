@@ -1,4 +1,3 @@
-
 class Basin:
 
     directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
@@ -10,7 +9,7 @@ class Basin:
     def is_low_point(self, i, j):
         is_low_point = True
         for d in self.directions:
-            x, y = i+d[0], j+d[1]
+            x, y = i + d[0], j + d[1]
             if x >= 0 and x < self.m and y >= 0 and y < self.n:
                 if self.data[i][j] >= self.data[x][y]:
                     is_low_point = False
@@ -21,7 +20,7 @@ class Basin:
         for i in range(self.m):
             for j in range(self.n):
                 if self.is_low_point(i, j):
-                    ans += (self.data[i][j]+1)
+                    ans += self.data[i][j] + 1
         return ans
 
     def get_basin_area(self, i, j):
@@ -32,7 +31,7 @@ class Basin:
             new_stack = []
             for p in stack:
                 for d in self.directions:
-                    x, y = p[0]+d[0], p[1]+d[1]
+                    x, y = p[0] + d[0], p[1] + d[1]
                     if (
                         x >= 0
                         and x < self.m
@@ -49,7 +48,10 @@ class Basin:
         return area
 
     def find_largest_basins(self):
-        """Specifically, find the 3 largest basins and sum their value"""
+        """Specifically, find the 3 largest basins and return their product
+
+        By the definition of the problem, it  assumes each basin has exactly one
+        low point.  This code has not been tested for cases where this is not true"""
         basin_areas = []
         for i in range(self.m):
             for j in range(self.n):
@@ -64,10 +66,10 @@ class Basin:
 
 
 if __name__ == "__main__":
-    basin = Basin('../data/test_day9.txt')
+    basin = Basin("../data/test_day9.txt")
     print(basin.find_and_sum_low_points())
     print(basin.find_largest_basins())
 
-    basin = Basin('../data/input_day9.txt')
+    basin = Basin("../data/input_day9.txt")
     print(basin.find_and_sum_low_points())
     print(basin.find_largest_basins())

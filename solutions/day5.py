@@ -1,16 +1,15 @@
-
 def find_overlap_horizontal(data, m, n):
     arr = [[0] * m for _ in range(n)]
     for x1, y1, x2, y2 in data:
         if x1 == x2:
             lower = min(y1, y2)
             upper = max(y1, y2)
-            for y in range(lower, upper+1):
+            for y in range(lower, upper + 1):
                 arr[x1][y] += 1
         elif y1 == y2:
             lower = min(x1, x2)
             upper = max(x1, x2)
-            for x in range(lower, upper+1):
+            for x in range(lower, upper + 1):
                 arr[x][y1] += 1
 
     n_overlap = 0
@@ -27,12 +26,12 @@ def find_overlap_diagonals(data, m, n, verbose=False):
         if x1 == x2:
             lower = min(y1, y2)
             upper = max(y1, y2)
-            for y in range(lower, upper+1):
+            for y in range(lower, upper + 1):
                 arr[x1][y] += 1
         elif y1 == y2:
             lower = min(x1, x2)
             upper = max(x1, x2)
-            for x in range(lower, upper+1):
+            for x in range(lower, upper + 1):
                 arr[x][y1] += 1
         else:
             if x2 > x1:
@@ -62,17 +61,17 @@ def find_overlap_diagonals(data, m, n, verbose=False):
     return n_overlap
 
 
-if __name__ == '__main__':
-    with open('../data/test_day5.txt', 'r') as f:
+if __name__ == "__main__":
+    with open("../data/test_day5.txt", "r") as f:
         m, n = 10, 10
         data = f.readlines()
-    data = [[int(y) for y in x.replace('->', ',').split(',')] for x in data]
+    data = [[int(y) for y in x.replace("->", ",").split(",")] for x in data]
     print(find_overlap_horizontal(data, m, n))
     print(find_overlap_diagonals(data, m, n))
 
-    with open('../data/input_day5.txt', 'r') as f:
+    with open("../data/input_day5.txt", "r") as f:
         m, n = 1000, 1000
         data = f.readlines()
-    data = [[int(y) for y in x.replace('->', ',').split(',')] for x in data]
+    data = [[int(y) for y in x.replace("->", ",").split(",")] for x in data]
     print(find_overlap_horizontal(data, m, n))
     print(find_overlap_diagonals(data, m, n))

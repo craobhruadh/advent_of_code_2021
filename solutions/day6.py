@@ -2,7 +2,6 @@ from collections import Counter
 
 
 class LanternFish:
-
     def __init__(self, timer=8):
         self.timer = timer
 
@@ -39,7 +38,7 @@ def simulate_fish_counter(data, n_days):
         new_fish = c[0]
         keys = [x for x in sorted(c.keys()) if x != 0]
         for key in keys:
-            c[key-1] = c[key]
+            c[key - 1] = c[key]
             c[key] = 0
         c[6] += new_fish
         c[8] += new_fish
@@ -52,18 +51,18 @@ def simulate_fish_counter(data, n_days):
 
 def read_data(file):
     with open(file) as f:
-        data = [int(x) for x in f.read().split(',')]
+        data = [int(x) for x in f.read().split(",")]
     return data
 
 
-if __name__ == '__main__':
-    data = read_data('../data/test_day6.txt')
+if __name__ == "__main__":
+    data = read_data("../data/test_day6.txt")
     print(simulate_fish(data, 18))
     print(simulate_fish_counter(data, 18))
     print(simulate_fish_counter(data, 80))
     print(simulate_fish_counter(data, 256))
 
-    data = read_data('../data/input_day6.txt')
+    data = read_data("../data/input_day6.txt")
     print(simulate_fish_counter(data, 80))
     print(simulate_fish_counter(data, 256))
 
